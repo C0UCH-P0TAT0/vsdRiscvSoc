@@ -1,11 +1,11 @@
-##TABLE OF CONTENTS
+# TABLE OF CONTENTS
 
 - [Decoding factorial](#decoding-factorial)
 - [Decoding max_array](#decoding-max_array)
 - [Decoding bitops](#decoding-bitops)
 - [Decoding bubble_sort](#decoding-bubble_sort)
 
-#Decoding factorial
+## Decoding factorial
 
 | Instruction       | Opcode  | rd   | rs1  | rs2  | funct3 | funct7   | Binary (partial)                             | Description            |
 |-------------------|---------|------|------|------|--------|----------|----------------------------------------------|------------------------|
@@ -15,7 +15,7 @@
 | `sw a5, -20(s0)`  | 0100011 | —    | x8   | x15  | 010    | 1111110  | `01111 01000 010 01100 0100011`              | `*(s0-20) = a5`        |
 | `lw a5, -20(s0)`  | 0000011 | x15  | x8   | —    | 010    | —        | `111111001100 01000 010 01111 0000011`       | `a5 = *(s0-20)`        |
 
-#Decoding max_array
+## Decoding max_array
 
 | Instruction            | Opcode  | rd   | rs1  | rs2  | funct3 | funct7   | Binary (partial)                             | Description                                 |
 |------------------------|---------|------|------|------|--------|----------|----------------------------------------------|---------------------------------------------|
@@ -25,7 +25,7 @@
 | `add a5, a5, a4`       | 0110011 | x15  | x15  | x14  | 000    | 0000000  | `0000000 01110 01111 000 01111 0110011`      | `a5 = a5 + a4`                              |
 | `sw a5, -20(s0)`       | 0100011 | —    | x8   | x15  | 010    | —        | `imm[11:5] 01111 01000 010 imm[4:0] 0100011` | Store 32-bit from `a5` at `s0-20`           |
 
-#Decoding bitops
+## Decoding bitops
 
 | Instruction        | Opcode  | rd   | rs1  | rs2  | funct3 | funct7   | Binary (partial)                             | Description                    |
 |--------------------|---------|------|------|------|--------|----------|----------------------------------------------|--------------------------------|
@@ -35,7 +35,7 @@
 | `and a5, a5, a4`   | 0110011 | x15  | x15  | x14  | 111    | 0000000  | `0000000 01110 01111 111 01111 0110011`      | `a5 = a5 & a4`                 |
 | `slliw a5, a5, 3`  | 0011011 | x15  | x15  | —    | 001    | —        | `000000000011 01111 001 01111 0011011`       | `a5 = (int32)(a5 << 3)`        |
 
-#Decoding bubble_sort
+## Decoding bubble_sort
 
 | Instruction          | Opcode  | rd   | rs1  | rs2  | funct3 | funct7  | Binary (partial)                           | Description                         |
 |----------------------|---------|------|------|------|--------|---------|--------------------------------------------|-------------------------------------|
