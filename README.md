@@ -41,7 +41,7 @@
 - [TASK-2.9 - Verifying spike and gcc versions](#task-29---verifying-spike-and-gcc-versions)
 
 
-## TASK-2.1 - Setting environment variables
+# TASK-2.1 - Setting environment variables
 
 ```bash
 export U=$(id -un)
@@ -51,7 +51,7 @@ export T=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 export E=$(date +%s)
 ```
 
-## TASK-2.2 - Saving unique.h
+# TASK-2.2 - Saving unique.h
 
 ```bash
 #ifndef UNIQUE_H
