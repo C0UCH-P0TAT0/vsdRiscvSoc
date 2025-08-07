@@ -366,4 +366,4 @@ riscv64-unknown-elf-objdump -d ./bubble_sort | sed -n '/<main>:/,/^$/p' | tee bu
 
 # TASK-2.9 - Verifying spike and gcc versions
 
-![spike and gcc version](spike_and_gcc_version.jpeg)
+![spike and gcc version](spike _and_gcc_version.jpeg)
