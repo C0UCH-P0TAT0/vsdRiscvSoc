@@ -38,9 +38,10 @@
   - [TASK-2.9.3 - bitops](#task-293---bitops)
   - [TASK-2.9.4 - bubble_sort](#task-294---bubble_sort)
 - [TASK-2.10 - Verifying spike and gcc versions](#task-210---verifying-spike-and-gcc-versions)
+- [TASK-2.9 - Verifying spike and gcc versions](#task-29---verifying-spike-and-gcc-versions)
 
 
-##TASK-2.1 - Setting environment variables
+## TASK-2.1 - Setting environment variables
 
 ```bash
 export U=$(id -un)
@@ -50,7 +51,7 @@ export T=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 export E=$(date +%s)
 ```
 
-##TASK-2.2 - Saving unique.h
+## TASK-2.2 - Saving unique.h
 
 ```bash
 #ifndef UNIQUE_H
@@ -124,9 +125,9 @@ static void uniq_print_header(const char *program_name) {
 #endif // UNIQUE_H
 ```
 
-##TASK-2.3
+## TASK-2.3
 
-#TASK-2.3.1 - saving factorial.c
+# TASK-2.3.1 - saving factorial.c
 
 ```bash
 #include "unique.h"
@@ -139,7 +140,7 @@ int main(void){
 }
 ```
 
-#TASK-2.3.2 - saving max_array.c
+# TASK-2.3.2 - saving max_array.c
 
 ```bash
 #include "unique.h"
@@ -153,7 +154,7 @@ int main(void){
 }
 ```
 
-#TASK-2.3.3 - saving bitops.c
+# TASK-2.3.3 - saving bitops.c
 
 ```bash
 #include "unique.h"
@@ -169,7 +170,7 @@ int main(void){
 }
 ```
 
-#TASK-2.3.4 - saving bubble_sort.c
+# TASK-2.3.4 - saving bubble_sort.c
 
 ```bash
 #include "unique.h"
@@ -183,10 +184,10 @@ int main(void){
 }
 ```
 
-##TASK-2.4
+## TASK-2.4
 
 
-#TASK-2.4.1 - Compile factorial.c
+# TASK-2.4.1 - Compile factorial.c
 
 ```bash
 riscv64-unknown-elf-gcc -O0 -g -march=rv64imac -mabi=lp64 \
@@ -195,7 +196,7 @@ riscv64-unknown-elf-gcc -O0 -g -march=rv64imac -mabi=lp64 \
 factorial.c -o factorial
 ```
 
-#TASK-2.4.2 - Compile max_array.c
+# TASK-2.4.2 - Compile max_array.c
 
 ```bash
 riscv64-unknown-elf-gcc -O0 -g -march=rv64imac -mabi=lp64 \
@@ -204,7 +205,7 @@ riscv64-unknown-elf-gcc -O0 -g -march=rv64imac -mabi=lp64 \
 max_array.c -o max_array
 ```
 
-#TASK-2.4.3 - Compile bitops.c
+# TASK-2.4.3 - Compile bitops.c
 
 ```bash
 riscv64-unknown-elf-gcc -O0 -g -march=rv64imac -mabi=lp64 \
@@ -213,7 +214,7 @@ riscv64-unknown-elf-gcc -O0 -g -march=rv64imac -mabi=lp64 \
 bitops.c -o bitops
 ```
 
-#TASK-2.4.4 - Compile bubble_sort.c
+# TASK-2.4.4 - Compile bubble_sort.c
 
 ```bash
 riscv64-unknown-elf-gcc -O0 -g -march=rv64imac -mabi=lp64 \
@@ -222,140 +223,98 @@ riscv64-unknown-elf-gcc -O0 -g -march=rv64imac -mabi=lp64 \
 bubble_sort.c -o bubble_sort
 ```
 
-##TASK-2.5
+## TASK-2.5
 
-#TASK-2.5.1 - Run factorial.c
+# TASK-2.5.1 - Run factorial.c
 
 ```bash
 spike ~/riscv_toolchain/riscv-pk/build/pk ./factorial
 ```
 
-#TASK-2.5.2 - Run max_array.c
+# TASK-2.5.2 - Run max_array.c
 
 ```bash
 spike ~/riscv_toolchain/riscv-pk/build/pk ./max_array
 ```
 
-#TASK-2.5.3 - Run bitops.c
+# TASK-2.5.3 - Run bitops.c
 
 ```bash
 spike ~/riscv_toolchain/riscv-pk/build/pk ./bitops
 ```
 
-#TASK-2.5.4 - Run buubble_sort.c
+# TASK-2.5.4 - Run buubble_sort.c
 
 ```bash
 spike ~/riscv_toolchain/riscv-pk/build/pk ./bubble_sort
 ```
 
-##TASK-2.6
+## TASK-2.6
 
-#TASK-2.6.1 - Assemble factorial.s
+# TASK-2.6.1 - Assemble factorial.s
 
 ```bash
 riscv64-unknown-elf-gcc -O0 -S factorial.c -o factorial.s
 ```
 
-#TASK-2.6.2 - Assemble max_array.s
+# TASK-2.6.2 - Assemble max_array.s
 
 ```bash
 riscv64-unknown-elf-gcc -O0 -S max_array.c -o max_array.s
 ```
 
-#TASK-2.6.3 - Assemble bitops.s
+# TASK-2.6.3 - Assemble bitops.s
 
 ```bash
 riscv64-unknown-elf-gcc -O0 -S bitops.c -o bitops.s
 ```
 
-#TASK-2.6.4 - Assemble bubble_sort.s
+# TASK-2.6.4 - Assemble bubble_sort.s
 
 ```bash
 riscv64-unknown-elf-gcc -O0 -S bubble_sort.c -o bubble_sort.s
 ```
 
-##TASK-2.7
+## TASK-2.7
 
-#TASK-2.7.1 - Disassembly of factorial
+# TASK-2.7.1 - Disassembly of factorial
 ```bash
 riscv64-unknown-elf-objdump -d ./factorial | sed -n '/<main>:/,/^$/p' | tee factorial_main_objdump.txt
 ```
 
-#TASK-2.7.1 - Disassembly of max_array
+# TASK-2.7.1 - Disassembly of max_array
 ```bash
 riscv64-unknown-elf-objdump -d ./max_array | sed -n '/<main>:/,/^$/p' | tee max_array_main_objdump.txt
 ```
 
-#TASK-2.7.1 - Disassembly of bitops
+# TASK-2.7.1 - Disassembly of bitops
 ```bash
 riscv64-unknown-elf-objdump -d ./bitops | sed -n '/<main>:/,/^$/p' | tee bitops_main_objdump.txt
 ```
 
-#TASK-2.7.1 - Disassembly of bubble_sort
+# TASK-2.7.1 - Disassembly of bubble_sort
 ```bash
 riscv64-unknown-elf-objdump -d ./bubble_sort | sed -n '/<main>:/,/^$/p' | tee bubble_sort_main_objdump.txt
 ```
 
-##TASK-2.8 - Results
+## TASK-2.8 - Results
 
-#TASK-2.8.1 - factorial
+# TASK-2.8.1 - factorial
 
 ![factorial output](output_images/factorial.png)
 
-#TASK-2.8.2 - max_array
+# TASK-2.8.2 - max_array
 
 ![max_array output](output_images/max_array.png)
 
-#TASK-2.8.3 - bitops
+# TASK-2.8.3 - bitops
 
 ![bitops output](output_images/bitops.png)
 
-#TASK-2.8.4 - bubble_sort
+# TASK-2.8.4 - bubble_sort
 
 ![bubble_sort output](output_images/bubble_sort.png)
 
-##TASK-2.9 - Instruction Decoding
-
-#TASK-2.9.1 - factorial
-
-| Instruction       | Opcode  | rd   | rs1  | rs2  | funct3 | funct7   | Binary (partial)                             | Description            |
-|-------------------|---------|------|------|------|--------|----------|----------------------------------------------|------------------------|
-| `addi sp, sp, -32`| 0010011 | x2   | x2   | —    | 000    | —        | `111111111000 00010 000 00010 0010011`       | `sp = sp - 32`         |
-| `sd ra, 24(sp)`   | 0100011 | —    | x2   | x1   | 011    | 0000000  | `0000000 00001 00010 011 11000 0100011`      | `*(sp+24) = ra`        |
-| `addi s0, sp, 32` | 0010011 | x8   | x2   | —    | 000    | —        | `000000100000 00010 000 01000 0010011`       | `s0 = sp + 32`         |
-| `sw a5, -20(s0)`  | 0100011 | —    | x8   | x15  | 010    | 1111110  | `01111 01000 010 01100 0100011`              | `*(s0-20) = a5`        |
-| `lw a5, -20(s0)`  | 0000011 | x15  | x8   | —    | 010    | —        | `111111001100 01000 010 01111 0000011`       | `a5 = *(s0-20)`        |
-
-#TASK-2.9.2 - max_array
-
-| Instruction            | Opcode  | rd   | rs1  | rs2  | funct3 | funct7   | Binary (partial)                             | Description                                 |
-|------------------------|---------|------|------|------|--------|----------|----------------------------------------------|---------------------------------------------|
-| `sd ra, 56(sp)`        | 0100011 | —    | x2   | x1   | 011    | —        | `0000001 00001 00010 011 ??? 0100011`        | Store 64-bit from `ra` at `sp+56`           |
-| `jal ra, 101ce`        | 1101111 | x1   | —    | —    | —      | —        | `imm[20|10:1|11|19:12] 00001 1101111`         | Jump to `uniq_print_header`, return in `ra`|
-| `lw a5, -64(s0)`       | 0000011 | x15  | x8   | —    | 010    | —        | `imm[11:0] 01000 010 01111 0000011`          | Load 32-bit from `s0-64` into `a5`          |
-| `add a5, a5, a4`       | 0110011 | x15  | x15  | x14  | 000    | 0000000  | `0000000 01110 01111 000 01111 0110011`      | `a5 = a5 + a4`                              |
-| `sw a5, -20(s0)`       | 0100011 | —    | x8   | x15  | 010    | —        | `imm[11:5] 01111 01000 010 imm[4:0] 0100011` | Store 32-bit from `a5` at `s0-20`           |
-
-#TASK-2.9.3 - bitops
-
-| Instruction        | Opcode  | rd   | rs1  | rs2  | funct3 | funct7   | Binary (partial)                             | Description                    |
-|--------------------|---------|------|------|------|--------|----------|----------------------------------------------|--------------------------------|
-| `addi sp, sp, -32` | 0010011 | x2   | x2   | —    | 000    | —        | `111111111000 00010 000 00010 0010011`       | `sp = sp - 32`                 |
-| `sd ra, 24(sp)`    | 0100011 | —    | x2   | x1   | 011    | 0000000  | `0000000 00001 00010 011 11000 0100011`      | `store ra at (sp + 24)`        |
-| `sw a5, -20(s0)`   | 0100011 | —    | x8   | x15  | 010    | 1111110  | `01111 01000 010 01100 0100011`              | `store a5 at (s0 - 20)`        |
-| `and a5, a5, a4`   | 0110011 | x15  | x15  | x14  | 111    | 0000000  | `0000000 01110 01111 111 01111 0110011`      | `a5 = a5 & a4`                 |
-| `slliw a5, a5, 3`  | 0011011 | x15  | x15  | —    | 001    | —        | `000000000011 01111 001 01111 0011011`       | `a5 = (int32)(a5 << 3)`        |
-
-#TASK-2.9.4 - bubble_sort
-
-| Instruction          | Opcode  | rd   | rs1  | rs2  | funct3 | funct7  | Binary (partial)                           | Description                         |
-|----------------------|---------|------|------|------|--------|---------|--------------------------------------------|-------------------------------------|
-| addi sp, sp, -64     | 0010011 | x2   | x2   | —    | 000    | —       | 111111111100 00010 000 00010 0010011       | sp = sp - 64                        |
-| sd ra, 56(sp)        | 0100011 | —    | x2   | x1   | 011    | 0000000 | 0000000 00001 00010 011 11100 0100011      | *(sp + 56) = ra                     |
-| lw a4, -24(s0)       | 0000011 | x14  | x8   | —    | 010    | —       | 111111100100 01000 010 01110 0000011       | a4 = *(s0 - 24)                     |
-| slli a5, a5, 0x2     | 0010011 | x15  | x15  | —    | 001    | —       | 000000000010 01111 001 01111 0010011       | a5 = a5 << 2                        |
-| addi a0, a5, -1920   | 0010011 | x10  | x15  | —    | 000    | —       | 111001111000 01111 000 01010 0010011       | a0 = a5 - 1920                      |
-
-##TASK-2.10 - Verifying spike and gcc versions
+## TASK-2.9 - Verifying spike and gcc versions
 
 ![spike and gcc version](spike_and_gcc_version.png)
