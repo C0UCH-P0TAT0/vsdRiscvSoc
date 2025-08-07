@@ -41,6 +41,8 @@
 - [TASK-2.9 - Verifying spike and gcc versions](#task-29---verifying-spike-and-gcc-versions)
 
 
+
+
 # TASK-2.1 - Setting environment variables
 
 ```bash
@@ -50,6 +52,9 @@ export M=$(cat /etc/machine-id | head -c 16)
 export T=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 export E=$(date +%s)
 ```
+
+
+
 
 # TASK-2.2 - Saving unique.h
 
@@ -125,7 +130,11 @@ static void uniq_print_header(const char *program_name) {
 #endif // UNIQUE_H
 ```
 
+
+
+
 # TASK-2.3
+
 
 ## TASK-2.3.1 - saving factorial.c
 
@@ -140,6 +149,7 @@ int main(void){
 }
 ```
 
+
 ## TASK-2.3.2 - saving max_array.c
 
 ```bash
@@ -153,6 +163,7 @@ int main(void){
 	return 0;
 }
 ```
+
 
 ## TASK-2.3.3 - saving bitops.c
 
@@ -170,6 +181,7 @@ int main(void){
 }
 ```
 
+
 ## TASK-2.3.4 - saving bubble_sort.c
 
 ```bash
@@ -184,6 +196,9 @@ int main(void){
 }
 ```
 
+
+
+
 # TASK-2.4
 
 
@@ -196,6 +211,7 @@ riscv64-unknown-elf-gcc -O0 -g -march=rv64imac -mabi=lp64 \
 factorial.c -o factorial
 ```
 
+
 ## TASK-2.4.2 - Compile max_array.c
 
 ```bash
@@ -204,6 +220,7 @@ riscv64-unknown-elf-gcc -O0 -g -march=rv64imac -mabi=lp64 \
 -DBUILD_UTC="\"$T\"" -DBUILD_EPOCH=$E \
 max_array.c -o max_array
 ```
+
 
 ## TASK-2.4.3 - Compile bitops.c
 
@@ -214,6 +231,7 @@ riscv64-unknown-elf-gcc -O0 -g -march=rv64imac -mabi=lp64 \
 bitops.c -o bitops
 ```
 
+
 ## TASK-2.4.4 - Compile bubble_sort.c
 
 ```bash
@@ -223,7 +241,11 @@ riscv64-unknown-elf-gcc -O0 -g -march=rv64imac -mabi=lp64 \
 bubble_sort.c -o bubble_sort
 ```
 
+
+
+
 # TASK-2.5
+
 
 ## TASK-2.5.1 - Run factorial.c
 
@@ -231,11 +253,13 @@ bubble_sort.c -o bubble_sort
 spike ~/riscv_toolchain/riscv-pk/build/pk ./factorial
 ```
 
+
 ## TASK-2.5.2 - Run max_array.c
 
 ```bash
 spike ~/riscv_toolchain/riscv-pk/build/pk ./max_array
 ```
+
 
 ## TASK-2.5.3 - Run bitops.c
 
@@ -243,13 +267,18 @@ spike ~/riscv_toolchain/riscv-pk/build/pk ./max_array
 spike ~/riscv_toolchain/riscv-pk/build/pk ./bitops
 ```
 
+
 ## TASK-2.5.4 - Run buubble_sort.c
 
 ```bash
 spike ~/riscv_toolchain/riscv-pk/build/pk ./bubble_sort
 ```
 
+
+
+
 # TASK-2.6
+
 
 ## TASK-2.6.1 - Assemble factorial.s
 
@@ -257,11 +286,13 @@ spike ~/riscv_toolchain/riscv-pk/build/pk ./bubble_sort
 riscv64-unknown-elf-gcc -O0 -S factorial.c -o factorial.s
 ```
 
+
 ## TASK-2.6.2 - Assemble max_array.s
 
 ```bash
 riscv64-unknown-elf-gcc -O0 -S max_array.c -o max_array.s
 ```
+
 
 ## TASK-2.6.3 - Assemble bitops.s
 
@@ -269,52 +300,70 @@ riscv64-unknown-elf-gcc -O0 -S max_array.c -o max_array.s
 riscv64-unknown-elf-gcc -O0 -S bitops.c -o bitops.s
 ```
 
+
 ## TASK-2.6.4 - Assemble bubble_sort.s
 
 ```bash
 riscv64-unknown-elf-gcc -O0 -S bubble_sort.c -o bubble_sort.s
 ```
 
+
+
+
 # TASK-2.7
+
 
 ## TASK-2.7.1 - Disassembly of factorial
 ```bash
 riscv64-unknown-elf-objdump -d ./factorial | sed -n '/<main>:/,/^$/p' | tee factorial_main_objdump.txt
 ```
 
+
 ## TASK-2.7.2 - Disassembly of max_array
 ```bash
 riscv64-unknown-elf-objdump -d ./max_array | sed -n '/<main>:/,/^$/p' | tee max_array_main_objdump.txt
 ```
+
 
 ## TASK-2.7.3 - Disassembly of bitops
 ```bash
 riscv64-unknown-elf-objdump -d ./bitops | sed -n '/<main>:/,/^$/p' | tee bitops_main_objdump.txt
 ```
 
+
 ## TASK-2.7.4 - Disassembly of bubble_sort
 ```bash
 riscv64-unknown-elf-objdump -d ./bubble_sort | sed -n '/<main>:/,/^$/p' | tee bubble_sort_main_objdump.txt
 ```
 
+
+
+
 # TASK-2.8 - Results
+
 
 ## TASK-2.8.1 - factorial
 
 ![factorial output](output_images/factorial.png)
 
+
 ## TASK-2.8.2 - max_array
 
 ![max_array output](output_images/max_array.png)
+
 
 ## TASK-2.8.3 - bitops
 
 ![bitops output](output_images/bitops.png)
 
+
 ## TASK-2.8.4 - bubble_sort
 
 ![bubble_sort output](output_images/bubble_sort.png)
 
+
+
+
 # TASK-2.9 - Verifying spike and gcc versions
 
-![spike and gcc version](spike_and_gcc_version.png)
+![spike and gcc version](spike_and_gcc_version.jpeg)
